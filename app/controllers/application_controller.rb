@@ -6,5 +6,6 @@ class ApplicationController < ActionController::Base
   def cart 
     cart = session[:cart] || []
     cart << @item.id
+    session[:cart] = cart
   end   
 end
