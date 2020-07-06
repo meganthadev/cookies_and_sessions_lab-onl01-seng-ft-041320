@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def cart 
-    @cart = Cart.find(session[:cart_id])
+    cart = session[:cart] || []
+    cart << @item.id
   end   
 end
